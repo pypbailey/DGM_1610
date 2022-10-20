@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events
-public class Mono : MonoBehaviour
+using UnityEngine.Events;
+public class MonoEventsBehavior : MonoBehaviour
 {
     public UnityEvent startEvent, awakeEvent, disableEvent;
 
