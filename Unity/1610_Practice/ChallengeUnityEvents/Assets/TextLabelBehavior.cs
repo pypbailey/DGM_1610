@@ -2,7 +2,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequiredComponet(typeof(Text))]
+[RequireComponent(typeof(Text))]
 public class TextLabelBehavior : MonoBehaviour
 {
     public Text label;
