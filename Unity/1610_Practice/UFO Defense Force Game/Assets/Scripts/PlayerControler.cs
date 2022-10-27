@@ -12,11 +12,6 @@ public class PlayerControler : MonoBehaviour
     public Transform blaster;
     public GameObject lazerbolt;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -43,5 +38,11 @@ public class PlayerControler : MonoBehaviour
             //Create lazerBolt at the blaster transform position maintaining the objects rotation.
             Instantiate(lazerbolt, blaster.transform.position, lazerbolt.transform.rotation);
        }
+    }
+
+    // Delete any object with a trigger that hits the UFO
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
     }
 }
