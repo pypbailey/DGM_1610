@@ -36,11 +36,11 @@ public class PlayerControler : MonoBehaviour
        if(Input.GetKeyDown(KeyCode.Space))
        {
             //Create lazerBolt at the blaster transform position maintaining the objects rotation.
-            Instantiate(lazerbolt, blaster.transform.position, lazerbolt.transform.rotation);
+           Instantiate(lazerbolt, blaster.transform.position, lazerbolt.transform.rotation);
        }
     }
 
-    // Delete any object with a trigger that hits the UFO
+    //Delete any object with a trigger that hits the UFO
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
