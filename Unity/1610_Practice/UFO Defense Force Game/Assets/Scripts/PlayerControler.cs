@@ -12,7 +12,14 @@ public class PlayerControler : MonoBehaviour
     public Transform blaster;
     public GameObject lazerbolt;
 
+    public AudioSource m_shootingSound;
+    
 
+   void Start()
+    {
+      m_shootingSound = GetComponent<AudioSource>();
+      
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,14 +42,18 @@ public class PlayerControler : MonoBehaviour
         // If space bar is pressed fire lazerbolt
        if(Input.GetKeyDown(KeyCode.Space))
        {
+           m_shootingSound.Play();
             //Create lazerBolt at the blaster transform position maintaining the objects rotation.
            Instantiate(lazerbolt, blaster.transform.position, lazerbolt.transform.rotation);
        }
     }
 
+   
+
     //Delete any object with a trigger that hits the UFO
     private void OnTriggerEnter(Collider other)
     {
+        
         Destroy(other.gameObject);
     }
 }
