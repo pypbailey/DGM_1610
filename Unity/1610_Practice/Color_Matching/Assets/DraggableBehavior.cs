@@ -1,15 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DraggableBehavior : MonoBehaviour
 {
-
     private Camera cameraObj;
     public bool draggable;
+
     public Vector3 position;
 
-    void start()
+    void Start()
     {
         cameraObj = Camera.main;
     }
@@ -21,14 +21,14 @@ public class DraggableBehavior : MonoBehaviour
         while (draggable)
         {
             yield return new WaitForFixedUpdate();
-            Debug.Log("Drag");
             position = cameraObj.ScreenToViewportPoint(Input.mousePosition);
-            transform.position = position;
         }
     }
 
-    public void OnMouseUp()
+    private void OnMouseUp()
     {
         draggable = false;
     }
+
 }
+
