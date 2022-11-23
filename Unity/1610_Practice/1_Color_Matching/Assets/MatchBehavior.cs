@@ -1,10 +1,24 @@
 using UnityEngine;
-
-public class MatchBehavior : MonoBehaviour
+using UnityEngine.Events;
+public class MatchBehavior : IDContainerBehavior
 {
-    public ID idObj;
+    public UnityEvent matchEvent, noMatchEvent;
+    
+    
    private void OnTriggerEnter(Collider other)
    {
-      Debug.Log(idObj);
+      var tempObj = other.GetComponent<IDContainerBehavior>();
+      if (tempObj == null)
+        return;
+
+      var otherID = tempObj.idObj;
+      if (otherID == idObj)
+      {
+        matchEvent.Invoke();
+      }
+      else
+      {
+        noMatchEvent.Invoke();
+      }
    }
 }
